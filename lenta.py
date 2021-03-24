@@ -1,11 +1,5 @@
 # Lint as: python3
-"""GLUE benchmark datasets, using TFDS.
-
-See https://gluebenchmark.com/ and
-https://www.tensorflow.org/datasets/catalog/glue
-
-Note that this requires the TensorFlow Datasets package, but the resulting LIT
-datasets just contain regular Python/NumPy data.
+"""Lenta dataset data loader
 """
 from lit_nlp.api import dataset as lit_dataset
 from lit_nlp.api import types as lit_types
