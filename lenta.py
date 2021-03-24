@@ -1,6 +1,6 @@
 # Lint as: python3
-"""Lenta dataset data loader
-"""
+"""Lenta dataset data loader"""
+
 from lit_nlp.api import dataset as lit_dataset
 from lit_nlp.api import types as lit_types
 
@@ -27,21 +27,20 @@ def load_data(data_path, split='train'):
 
 
 class LentaData(lit_dataset.Dataset):  #### EDIT
-  """Lenta news loader
-  """
+    """Lenta news loader class"""
 
-  LABELS = ['Культура', 'Наука и техника', 'Экономика']  #### EDIT
+    LABELS = ['Культура', 'Наука и техника', 'Экономика']  #### EDIT
 
-  def __init__(self, split: str):
-    self._examples = []
-    for ex in load_data('D:/news.csv', split=split):  #### EDIT
-      self._examples.append({
-          'sentence': ex['sentence'],
-          'label': ex['label'],
-      })
+    def __init__(self, split: str):
+        self._examples = []
+        for ex in load_data('D:/news.csv', split=split):  #### EDIT
+            self._examples.append({
+                                  'sentence': ex['sentence'],
+                                  'label': ex['label'],    #### EDIT
+            })
 
-  def spec(self):
-    return {
-        'sentence': lit_types.TextSegment(),
-        'label': lit_types.CategoryLabel(vocab=self.LABELS)
-    }
+    def spec(self):
+        return {
+                'sentence': lit_types.TextSegment(),
+                'label': lit_types.CategoryLabel(vocab=self.LABELS)
+        }
